@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error" name="FCI Certificate Broker Rest Services" monitorInterval="60">
+	<Properties>
+		<Property name="layout1" value="[%d{ISO8601}] %-5p: %m%n"/>
+	</Properties>
+	<Appenders>
+		<Console name="Console">
+			<PatternLayout>
+				<Pattern>${layout1}</Pattern>
+			</PatternLayout>
+		</Console>
+		<RollingFile name="File" fileName="C:\Users\pero\Desktop\Sven\work_fungarium\logs\fungarium.log"
+                 filePattern="C:\Users\pero\Desktop\Sven\work_fungarium\logs\history\fungarium.log-%d{MM-dd-yyyy}-%i.log.zip">
+			<PatternLayout>
+				<Pattern>${layout1}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console"/>
+			<AppenderRef ref="File"/>  
+		</Root>
+		<Logger name="com.dhbw.fungarium.db" level="debug"/>	
+		<Logger name="com.dhbw.fungarium.RulesDataHandler" level="debug"/>
+	</Loggers>
+</Configuration>
+
+
